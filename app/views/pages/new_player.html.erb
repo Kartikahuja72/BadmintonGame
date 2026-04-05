@@ -1,0 +1,52 @@
+<h2>Create Player</h2>
+
+<form id="createPlayerForm">
+  <div class="form-group">
+    <label>Player Name</label>
+    <input type="text" id="name" placeholder="Enter player name" required>
+  </div>
+  <div class="form-group">
+    <label>Phone</label>
+    <input type="text" id="phone" placeholder="Enter 10-digit phone" required>
+  </div>
+
+  <button type="submit">Create Player</button>
+</form>
+
+<p id="error"></p>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  input {
+    padding: 6px;
+    width: 250px;
+  }
+
+  button {
+    padding: 6px 12px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #34495e;
+  }
+
+  #error {
+    color: red;
+    margin-top: 10px;
+  }
+</style>

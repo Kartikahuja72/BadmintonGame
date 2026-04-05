@@ -1,0 +1,90 @@
+<h2>Match Results</h2>
+
+<table border="1" cellpadding="10" id="resultsTable">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Player A</th>
+      <th>Player B</th>
+      <th>Player A ID</th>
+      <th>Player B ID</th>
+      <th>Winner</th>
+      <th>Loser</th>
+      <th>Played At</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<p id="error"></p>
+
+<style>
+  table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #2c3e50;
+    color: white;
+  }
+
+  #error {
+    color: red;
+    margin-top: 10px;
+  }
+</style>
+
+<script>
+document.addEventListener("turbo:load", async () => {
+  const tableBody = document.querySelector("#resultsTable tbody");
+  const error = document.getElementById("error");
+  const token = localStorage.getItem("token");
+
+  if (!tableBody) return;
+
+  try {
+    const res = await fetch("/match_results", {
+      headers: {
+        "Authorization": `Bearer ${token}`
+      }
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      error.innerText = data.error || "Failed to load matches";
+      return;
+    }
+
+    tableBody.innerHTML = ""; 
+
+    data.matches.forEach((match, index) => {
+      const playedAt = new Date(match.played_at).toLocaleString();
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${match.player_a}</td>
+        <td>${match.player_b}</td>
+        <td>${match.player_a_id}</td>
+        <td>${match.player_b_id}</td>
+        <td><b>${match.winner}</b></td>
+        <td>${match.loser}</td>
+        <td>${playedAt}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+  } catch (err) {
+    console.error(err);
+    error.innerText = "Something went wrong while loading matches.";
+  }
+});
+</script>

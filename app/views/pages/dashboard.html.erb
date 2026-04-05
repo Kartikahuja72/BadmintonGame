@@ -1,0 +1,54 @@
+<h2>Dashboard</h2>
+<p>Welcome to Badminton League 🏸</p>
+
+<!-- Logout Button -->
+<div style="margin-top: 10px;">
+  <button onclick="logout()" class="btn logout-btn">Logout</button>
+</div>
+
+<hr>
+
+<div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+
+
+  <a href="/players-page" class="btn">Manage Players</a>
+
+  <a href="/matches-page" class="btn">Create Match</a>
+
+  <a href="/match-results-page" class="btn">Match Results</a>
+
+  <a href="/leaderboard-page" class="btn">Leaderboard</a>
+
+</div>
+
+<style>
+  .btn {
+    padding: 12px 20px;
+    background-color: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #34495e;
+  }
+
+  .logout-btn {
+    background-color: #e74c3c;
+  }
+
+  .logout-btn:hover {
+    background-color: #c0392b;
+  }
+</style>
+
+<script>
+  function logout() {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+  }
+</script>
