@@ -107,6 +107,7 @@ cd badminton-league
 bundle install
 rails db:create
 rails db:migrate
+rails db:seed
 ```
 
 Run the server:
