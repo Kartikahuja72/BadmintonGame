@@ -120,8 +120,3 @@ Open in browser:
 ```
 http://localhost:3000
 ```
-
-
-If you want next step, I can:
-👉 make it **slightly more impressive for interviews (just +10%)**
-👉 or keep it minimal but add **1–2 smart lines that stand out to interviewer**
