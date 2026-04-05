@@ -101,7 +101,7 @@ Displays:
 ## Setup Instructions
 
 ```bash
-git clone [https://github.com/Kartikahuja72/BadmintonGame.git](https://github.com/Kartikahuja72/BadmintonGame.git)
+git clone https://github.com/Kartikahuja72/BadmintonGame.git
 cd badminton-league
 
 bundle install
